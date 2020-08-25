@@ -32,5 +32,7 @@ makeHulaDancer.prototype.step = function() {
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
   this.$node.toggle();
+  console.log(this.$node);
+  //shouldn't we be able to get .effect("shake")
 };
 

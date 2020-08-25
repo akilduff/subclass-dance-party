@@ -30,7 +30,10 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
+    dancer.id = window.dancers.length;
+    dancer.$node.attr('id', dancer.id.toString());
   });
+  ///////////
 
   $('.addDancerButton1').on('click', function(event) {
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
@@ -44,6 +47,8 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
+    dancer.id = window.dancers.length;
+    dancer.$node.attr('id', dancer.id.toString());
   });
 
   $('.addDancerButton2').on('click', function(event) {
@@ -58,6 +63,8 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
+    dancer.id = window.dancers.length;
+    dancer.$node.attr('id', dancer.id.toString());
   });
 
   $('.lineUp').on('click', function(event) {
@@ -69,23 +76,11 @@ $(document).ready(function() {
       var dancer = window.dancers[i];
       console.log(dancer);
       dancer.setPosition(150, i * 100);
+      // is there a way we can do this as a percent?
+      // not a thing to try until all functionality works
     }
     console.log('test2');
   });
 
-  var mouseoverStyle = {
-    boarder: 20,
-  };
-
-  var mouseout = {
-    border: 10,
-  };
-
-  $('.dancer').on('click', function(event) {
-    console.log('helllo');
-    // $(this).css('border-color', 'white');
-  });
-  // $('.crazymouse').mouseout(function() {
-  // $(this).css('border-color', 'pink');
-  // });
 });
+

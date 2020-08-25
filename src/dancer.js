@@ -1,16 +1,52 @@
 // Creates and returns a new dancer object that can step
+
 var MakeDancer = function(top, left, timeBetweenSteps) {
   this.top = top;
   this.left = left;
   this.time = timeBetweenSteps;
+  this.id;
 
 
   // use jQuery to create an HTML <span> tag
-  this.$node = $('<span class="dancer crazymouse"></span>');
+  this.$node = $('<span class="dancer"></span>');
 
   // call the file to take a step
   this.step();
   this.setPosition(top, left);
+  this.$node.mouseover(function(event) {
+
+    $('.dancer').css('border', '20px solid red');
+
+    // identify the specific node we're mousing over
+    var startingNodeLeftValue = parseInt(this.style.left);
+    var startingNodeTopValue = parseInt(this.style.top);
+    // initialize a closest node as the first node
+    var closestNode = window.dancers[0];
+    var leftLoc = parseInt(closestNode.left);
+    var topLoc = parseInt(closestNode.top);
+    // calc sum of squares for distance
+    var minDist = Math.pow((leftLoc - startingNodeLeftValue), 2) + Math.pow((topLoc - startingNodeTopValue), 2);
+    // iterate over the array of nodes to set min distance
+    for (var i = 0; i < window.dancers.length - 1; i++) {
+      var inspectNode = window.dancers[i];
+      leftLoc = parseInt(inspectNode.left);
+      topLoc = parseInt(inspectNode.top);
+      if (leftLoc === startingNodeLeftValue) {
+        // continue
+      } else {
+        var dist = Math.pow((leftLoc - startingNodeLeftValue), 2) + Math.pow((topLoc - startingNodeTopValue), 2);
+        console.log(dist);
+        if (dist < minDist) {
+          minDist = dist;
+          closestNode = window.dancers[i];
+        }
+      }
+    }
+    console.log(closestNode);
+    // once we mouseover a dancer one time we get the closest
+    // when we mouseover again the closest function breaks
+  });
+  // border:10px
 };
 
 
