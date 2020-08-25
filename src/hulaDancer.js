@@ -1,11 +1,11 @@
-var makeGeometryDancer = function(top, left, timeBetweenSteps) {
+var makeHulaDancer = function(top, left, timeBetweenSteps) {
   MakeDancer.call(this, top, left, timeBetweenSteps);
   // this.top = top;
   // this.left = left;
   // this.time = timeBetweenSteps;
 
   // use jQuery to create an HTML <span> tag
-  this.$node = $('<span class="geodancer"></span>');
+  this.$node = $('<span class="huladancer"></span>');
   // call the file to take a step
   this.setPosition(top, left);
 
@@ -14,10 +14,10 @@ var makeGeometryDancer = function(top, left, timeBetweenSteps) {
 // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
 // so we must keep a copy of the old version of this function
 
-makeGeometryDancer.prototype = Object.create(MakeDancer.prototype);
-makeGeometryDancer.prototype.constructor = makeGeometryDancer;
+makeHulaDancer.prototype = Object.create(MakeDancer.prototype);
+makeHulaDancer.prototype.constructor = makeHulaDancer;
 
-makeGeometryDancer.prototype.step = function() {
+makeHulaDancer.prototype.step = function() {
   // call the old version of step at the beginning of any call to this new version of step
   MakeDancer.prototype.step.call(this);
   // setTimeout(this.step, this.time);

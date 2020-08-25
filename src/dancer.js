@@ -6,7 +6,7 @@ var MakeDancer = function(top, left, timeBetweenSteps) {
 
 
   // use jQuery to create an HTML <span> tag
-  this.$node = $('<span class="dancer"></span>');
+  this.$node = $('<span class="dancer crazymouse"></span>');
 
   // call the file to take a step
   this.step();

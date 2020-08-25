@@ -17,6 +17,7 @@ $(document).ready(function() {
      */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
+
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
@@ -28,6 +29,63 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
   });
-});
 
+  $('.addDancerButton1').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+
+    var dancer = new dancerMakerFunction(
+      $("body").height() * Math.random(),
+      $("body").width() * Math.random(),
+      Math.random() * 1000
+    );
+    $('body').append(dancer.$node);
+    window.dancers.push(dancer);
+  });
+
+  $('.addDancerButton2').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+
+    var dancer = new dancerMakerFunction(
+      $("body").height() * Math.random(),
+      $("body").width() * Math.random(),
+      Math.random() * 1000
+    );
+    $('body').append(dancer.$node);
+    window.dancers.push(dancer);
+  });
+
+  $('.lineUp').on('click', function(event) {
+
+    console.log('test');
+    console.log(window.dancers);
+
+    for (var i = 0; i < window.dancers.length; i++) {
+      var dancer = window.dancers[i];
+      console.log(dancer);
+      dancer.setPosition(150, i * 100);
+    }
+    console.log('test2');
+  });
+
+  var mouseoverStyle = {
+    boarder: 20,
+  };
+
+  var mouseout = {
+    border: 10,
+  };
+
+  $('.dancer').on('click', function(event) {
+    console.log('helllo');
+    // $(this).css('border-color', 'white');
+  });
+  // $('.crazymouse').mouseout(function() {
+  // $(this).css('border-color', 'pink');
+  // });
+});

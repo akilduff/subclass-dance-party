@@ -31,7 +31,7 @@ makeBlinkyDancer.prototype.step = function() {
   this.$node.toggle();
 };
 
-var blinkyDancer = new makeBlinkyDancer(10, 20, 100);
-blinkyDancer.step();
-sinon.spy(blinkyDancer, 'step');
-console.log(blinkyDancer.step.callCount);
+// var blinkyDancer = new makeBlinkyDancer(10, 20, 100);
+// blinkyDancer.step();
+// sinon.spy(blinkyDancer, 'step');
+// console.log(blinkyDancer.step.callCount);
