@@ -1,4 +1,4 @@
-var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
+var makeGeometeryDancer = function(top, left, timeBetweenSteps) {
   MakeDancer.call(this, top, left, timeBetweenSteps);
   // this.top = top;
   // this.left = left;
@@ -11,10 +11,10 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
 // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
 // so we must keep a copy of the old version of this function
 
-makeBlinkyDancer.prototype = Object.create(MakeDancer.prototype);
-makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
+makeGeometeryDancer.prototype = Object.create(MakeDancer.prototype);
+makeGeometeryDancer.prototype.constructor = makeGeometeryDancer;
 
-makeBlinkyDancer.prototype.step = function() {
+makeGeometeryDancer.prototype.step = function() {
   // call the old version of step at the beginning of any call to this new version of step
   MakeDancer.prototype.step.call(this);
   // setTimeout(this.step, this.time);
@@ -31,7 +31,3 @@ makeBlinkyDancer.prototype.step = function() {
   this.$node.toggle();
 };
 
-var blinkyDancer = new makeBlinkyDancer(10, 20, 100);
-blinkyDancer.step();
-sinon.spy(blinkyDancer, 'step');
-console.log(blinkyDancer.step.callCount);
