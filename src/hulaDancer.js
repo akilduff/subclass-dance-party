@@ -19,7 +19,7 @@ makeHulaDancer.prototype.step = function() {
 
   MakeDancer.prototype.step.call(this);
 
-  $('#' + this.id).animate({width: "20px"});
-  $('#' + this.id).animate({width: "10px"});
+  $('#' + this.id).animate({width: '20px'});
+  $('#' + this.id).animate({width: '10px'});
 };
 

@@ -19,7 +19,7 @@ makeGeometryDancer.prototype.step = function() {
   MakeDancer.prototype.step.call(this);
   // setTimeout(this.step, this.time);
 
-  $('#' + this.id).animate({'border-radius': "100px"}, 'slow');
-  $('#' + this.id).animate({'border-radius': "0px"}, 'slow');
+  $('#' + this.id).animate({'border-radius': '100px'}, 'slow');
+  $('#' + this.id).animate({'border-radius': '0px'}, 'slow');
 };
 
