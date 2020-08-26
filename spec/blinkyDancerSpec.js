@@ -33,3 +33,29 @@ describe('blinkyDancer', function() {
     });
   });
 });
+
+describe('hulaDancer', function() {
+  var hulaDancer, clock;
+  var timeBetweenSteps = 100;
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    hulaDancer = new makeHulaDancer(10, 20, timeBetweenSteps);
+  });
+
+  it('should have a valid jQuery $node object', function() {
+    expect(hulaDancer.$node).to.be.an.instanceof(jQuery);
+  });
+});
+
+describe('geometryDancer', function() {
+  var geometryDancer, clock;
+  var timeBetweenSteps = 100;
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    geometryDancer = new makeGeometryDancer(10, 20, timeBetweenSteps);
+  });
+
+  it('confirm there is a third type of dancer with jQuery $node object', function() {
+    expect(geometryDancer.$node).to.be.an.instanceof(jQuery);
+  });
+});

@@ -33,7 +33,6 @@ $(document).ready(function() {
     dancer.id = window.dancers.length;
     dancer.$node.attr('id', dancer.id.toString());
   });
-  ///////////
 
   $('.addDancerButton1').on('click', function(event) {
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');

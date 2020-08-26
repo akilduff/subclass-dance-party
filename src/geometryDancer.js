@@ -11,9 +11,6 @@ var makeGeometryDancer = function(top, left, timeBetweenSteps) {
 
 };
 
-// we plan to overwrite the step function below, but we still want the superclass step behavior to work,
-// so we must keep a copy of the old version of this function
-
 makeGeometryDancer.prototype = Object.create(MakeDancer.prototype);
 makeGeometryDancer.prototype.constructor = makeGeometryDancer;
 
@@ -22,15 +19,7 @@ makeGeometryDancer.prototype.step = function() {
   MakeDancer.prototype.step.call(this);
   // setTimeout(this.step, this.time);
 
-  // MakeDancer.prototype.step = function() {
-  //   // the basic dancer doesn't do anything interesting at all on each step,
-  //   // it just schedules the next step
-  //   setTimeout(this.step, timeBetweenSteps);
-  // };
-
-  // toggle() is a jQuery method to show/hide the <span> tag.
-  // See http://api.jquery.com/category/effects/ for this and
-  // other effects you can use on a jQuery-wrapped html tag.
-  this.$node.toggle();
+  $('#' + this.id).animate({'border-radius': "100px"}, 'slow');
+  $('#' + this.id).animate({'border-radius': "0px"}, 'slow');
 };
 

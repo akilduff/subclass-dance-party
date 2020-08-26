@@ -3,7 +3,10 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background-image: url('https://2nqf1a2pxrmv1i0jyy3lbz8e-wpengine.netdna-ssl.com/wp-content/uploads/2017/06/SNF_Floor.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -31,7 +34,7 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 .huladancer{
-  border:10px solid blue;
+  content: url('https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&w=1000&q=80');
   border-radius:6px, 6px;
   position:absolute;
 }

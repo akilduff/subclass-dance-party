@@ -15,13 +15,19 @@ var MakeDancer = function(top, left, timeBetweenSteps) {
   this.setPosition(top, left);
   this.$node.mouseover(function(event) {
 
-    $('.dancer').css('border', '20px solid red');
+    //mouseover makes the object BIG!
+    $('#' + this.id).css('border', '20px solid red');
 
+    //mouseover makes the near object
     // identify the specific node we're mousing over
     var startingNodeLeftValue = parseInt(this.style.left);
     var startingNodeTopValue = parseInt(this.style.top);
     // initialize a closest node as the first node
-    var closestNode = window.dancers[0];
+    if (this.id === '1') {
+      var closestNode = window.dancers[1];
+    } else {
+      var closestNode = window.dancers[0];
+    }
     var leftLoc = parseInt(closestNode.left);
     var topLoc = parseInt(closestNode.top);
     // calc sum of squares for distance
@@ -31,7 +37,7 @@ var MakeDancer = function(top, left, timeBetweenSteps) {
       var inspectNode = window.dancers[i];
       leftLoc = parseInt(inspectNode.left);
       topLoc = parseInt(inspectNode.top);
-      if (leftLoc === startingNodeLeftValue) {
+      if (this.id === (i + 1).toString()) {
         // continue
       } else {
         var dist = Math.pow((leftLoc - startingNodeLeftValue), 2) + Math.pow((topLoc - startingNodeTopValue), 2);
@@ -43,10 +49,11 @@ var MakeDancer = function(top, left, timeBetweenSteps) {
       }
     }
     console.log(closestNode);
+    $('#' + closestNode.id).css('border', '20px solid white');
     // once we mouseover a dancer one time we get the closest
     // when we mouseover again the closest function breaks
   });
-  // border:10px
+
 };
 
 
